@@ -105,15 +105,14 @@ run = t.add_run("Watching hype arrive: anytime-valid detection of attention "
 run.bold = True
 run.font.size = Pt(16)
 
-sub = doc.add_paragraph()
-sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
-run = sub.add_run("Vinh")
-run.font.size = Pt(12)
-aff = doc.add_paragraph()
-aff.alignment = WD_ALIGN_PARAGRAPH.CENTER
-run = aff.add_run("Independent Researcher")
+# Author details are withheld from the main manuscript for anonymous peer
+# review; they appear on the separate title page (ECHO_title_page.docx).
+note = doc.add_paragraph()
+note.alignment = WD_ALIGN_PARAGRAPH.CENTER
+run = note.add_run("[Author details removed for anonymous review — see title page]")
 run.italic = True
-run.font.size = Pt(11)
+run.font.size = Pt(10)
+run.font.color.rgb = RGBColor(0x80, 0x80, 0x80)
 
 # ===========================================================================
 # STRUCTURED ABSTRACT
