@@ -1,0 +1,39 @@
+# Curated, reproducible sampling frame.
+#
+# Rationale (see manuscript, Section 3.2): broad recurring keyword search via
+# search.list costs 100 quota units per call against a 10,000/day budget. To
+# spend quota efficiently AND to obtain a transparent, reproducible sampling
+# frame, ECHO seeds collection from a curated set of channels/videos and then
+# expands ONLY through cheap endpoints (playlistItems=1u, videos=1u,
+# commentThreads=1u). A single optional search.list seeding pass per event is
+# permitted to discover the top-N videos; the resolved video IDs are then
+# frozen into `frozen_video_ids` so the exact frame is re-runnable at 0 search
+# cost.
+#
+# Populate `channels` / `search_seeds` before the first run. After the seeding
+# pass, `scripts/run_collection.py --freeze` writes the resolved IDs back here.
+
+odyssey:
+  # Seed queries used at most once to discover the top videos (then frozen).
+  search_seeds:
+    - "The Odyssey Nolan trailer"
+    - "The Odyssey IMAX 70mm"
+    - "The Odyssey reaction"
+    - "The Odyssey review 2026"
+  # Known official / major-channel handles to expand via uploads playlist.
+  channels: []            # e.g. ["UCxxxx (Universal)", ...] — resolved to IDs at run time
+  channel_handles:
+    - "@UniversalPictures"
+  # Frozen after seeding pass (authoritative frame for the paper).
+  frozen_video_ids: []
+
+worldcup:
+  search_seeds:
+    - "World Cup 2026 highlights"
+    - "FIFA World Cup 2026 official"
+    - "World Cup 2026 reaction"
+    - "World Cup 2026 opening"
+  channels: []
+  channel_handles:
+    - "@FIFA"
+  frozen_video_ids: []

@@ -1,0 +1,71 @@
+# ECHO global run settings
+# All parameters that define the sampling frame and analysis windows live here
+# so the methods section of the manuscript is fully reproducible from one file.
+
+api:
+  # Daily quota budget for the YouTube Data API v3 project (default free tier).
+  daily_quota_units: 10000
+  # Quota cost per endpoint (YouTube Data API v3 documented costs).
+  cost_search: 100
+  cost_videos: 1
+  cost_channels: 1
+  cost_commentThreads: 1
+  cost_playlistItems: 1
+  # Max comment threads per video (pagination cap to bound quota per video).
+  max_comment_pages_per_video: 15     # 15 pages x 100 = up to 1500 top-level threads
+  max_replies_per_thread: 100
+  max_videos_per_event: 70            # cap discovered videos to balance quota across events
+
+windows:
+  # Event A: technology-mediated cultural event.
+  odyssey:
+    label: "The Odyssey (IMAX/70mm format innovation)"
+    anchor_date: "2026-07-17"          # theatrical release
+    collect_start: "2026-06-19"        # 4 weeks pre-release
+    collect_end:   "2026-07-31"        # 2 weeks post-release
+  # Event B: non-technology-anchored sporting mega-event.
+  worldcup:
+    label: "FIFA World Cup 2026"
+    anchor_date: "2026-06-11"          # tournament opening
+    collect_start: "2026-05-14"        # 4 weeks pre
+    collect_end:   "2026-06-25"        # ~2 weeks in
+
+network:
+  # Two users are linked if they comment on the same video within this window.
+  cocomment_window_hours: 24
+  # Minimum shared videos to instantiate a co-comment edge (sparsify hairball).
+  # >=2 yields the meaningful cross-video co-engagement backbone.
+  min_shared_videos: 2
+  # Temporal slicing granularity for the snapshot sequence.
+  snapshot_granularity: "1D"
+  # Drop nodes with degree below this in structural analysis (noise floor).
+  min_node_degree: 2
+
+detection:
+  # Anytime-valid e-process significance level (family-wise, any-time).
+  alpha: 0.05
+  # Reference (pre-change) rate is estimated from this many initial snapshots.
+  burn_in_snapshots: 7
+  # Mixture grid for the composite betting alternative (rate multipliers).
+  bet_grid: [1.25, 1.5, 2.0, 3.0]
+  # Conservative shrinkage of the estimated NB dispersion (guards against
+  # under-estimated dispersion from a short burn-in). <1 => assume more dispersion.
+  dispersion_shrink: 0.33
+  # Fixed-window baseline: half-window size (snapshots) for the two-sample t-test.
+  fixed_window_half: 7
+
+causal:
+  caliper_sd: 0.5                      # caliper = 0.5 * SD of logit propensity
+  n_neighbors: 1                       # 1:1 nearest-neighbour matching
+  covariates:
+    - log_subscribers
+    - log_channel_video_count
+    - upload_hour
+    - days_from_anchor
+    - log_prior_views
+
+forecast:
+  conformal_alpha: 0.1                 # 90% prediction intervals
+  horizon_days: 3
+
+seed: 20260717                         # global RNG seed for full reproducibility
