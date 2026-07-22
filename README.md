@@ -6,9 +6,9 @@ YouTube's commenter network, and for detecting **when** that attention
 accelerates using **anytime-valid** sequential methods rather than post-hoc
 fixed-window comparisons.
 
-It accompanies the manuscript *"Watching hype arrive: anytime-valid detection of
-attention cascades around technology-mediated events on YouTube"* (prepared for
-*Information Technology & People*).
+It accompanies the manuscript *"When audiences turn: how publics collectively
+mobilise around technology-mediated events, and detecting the turn as it
+happens"* (prepared for *Internet Research*).
 
 ## What it does
 

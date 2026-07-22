@@ -63,3 +63,13 @@
 50. Nosek, B.A. et al. (2015), "Promoting an open research culture", *Science*, Vol. 348 No. 6242, pp.1422-1425. doi: 10.1126/science.aab2374
 51. Zimmer, M. (2010), "'But the data is already public': on the ethics of research in Facebook", *Ethics and Information Technology*, Vol. 12 No. 4, pp.313-325. doi: 10.1007/s10676-010-9227-5
 52. Li, L., He, Y., Liu, L. and Zhao, J. (2026), "The impact of multi-aspect electronic word-of-mouth on movie box office: an exploration study based on large language models", *Decision Support Systems*, Vol. 208, article 114718. doi: 10.1016/j.dss.2026.114718  [2026]
+
+## Batch E — Internet Research (Emerald) journal-fit anchors [retarget]
+
+53. Elhajjar, S. and Itani, O.S. (2025), "Examining the impact of social media de-influencing on audiences", *Internet Research*, Vol. 36 No. 4, pp.1201-1221. doi: 10.1108/INTR-04-2024-0574
+54. Lee, Y., Yoon, D. and Yue, C.A. (2025), "The value of CEO communication on social media for internal relationship management and employees' social media engagement", *Internet Research*, Vol. 36 No. 4, pp.1158-1180. doi: 10.1108/INTR-05-2024-0705
+55. Meng, X., Wang, X. and Zhao, X. (2025), "The dynamics of conspiracy theories on social media from the diffusion of innovations perspective: the moderating role of time", *Internet Research*, Vol. ahead-of-print. doi: 10.1108/INTR-07-2024-1123
+56. Yin, Q., Guo, C. and Yan, Z. (2025), "From intervention to prevention! Effects of peer progress information on user engagement", *Internet Research*, Vol. ahead-of-print. doi: 10.1108/INTR-05-2024-0817
+57. Kelly, D. and Burkell, J. (2025), "Resisting online manipulation: how teens perceive and respond to privacy dark patterns on social media", *Internet Research*, Vol. ahead-of-print. doi: 10.1108/INTR-04-2024-0539
+58. Olfat, M., Topic-Rutherford, M., Mohammad Beig, M. and Barkhi, F. (2025), "What makes an influencer's followers green? U-shaped curvilinear relationships between influencers' interactive practices and perceived pro-environmental behaviors", *Internet Research*, Vol. ahead-of-print. doi: 10.1108/INTR-09-2024-1395
+59. Pan, T., Guo, X., Sun, Y. and Yang, H. (2026), "Revealing how information attributes of social media affect individuals' mental health during health crises: a person-environment fit perspective", *Internet Research*, Vol. ahead-of-print. doi: 10.1108/INTR-06-2025-0965  [2026]

@@ -23,8 +23,8 @@ st.font.size = Pt(12)
 # --- Title -----------------------------------------------------------------
 t = doc.add_paragraph()
 t.alignment = WD_ALIGN_PARAGRAPH.CENTER
-r = t.add_run("Watching hype arrive: anytime-valid detection of attention "
-              "cascades around technology-mediated events on YouTube")
+r = t.add_run("When audiences turn: how publics collectively mobilise around "
+              "technology-mediated events, and detecting the turn as it happens")
 r.bold = True
 r.font.size = Pt(16)
 

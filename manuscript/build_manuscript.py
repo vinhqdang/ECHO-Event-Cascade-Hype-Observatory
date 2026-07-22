@@ -100,8 +100,8 @@ def figure(name, caption):
 # ===========================================================================
 t = doc.add_paragraph()
 t.alignment = WD_ALIGN_PARAGRAPH.CENTER
-run = t.add_run("Watching hype arrive: anytime-valid detection of attention "
-                "cascades around technology-mediated events on YouTube")
+run = t.add_run("When audiences turn: how publics collectively mobilise around "
+                "technology-mediated events, and detecting the turn as it happens")
 run.bold = True
 run.font.size = Pt(16)
 
@@ -119,42 +119,50 @@ run.font.color.rgb = RGBColor(0x80, 0x80, 0x80)
 # ===========================================================================
 h1("Abstract")
 abstract_item("Purpose", (
-    "Collective attention around technology-mediated events builds and breaks "
-    "with striking speed, yet analysts almost always describe it in hindsight. "
-    "This paper asks whether the onset of such attention cascades can be "
-    "detected in real time with valid error guarantees, and whether the "
-    "networked signature of a technology-mediated cultural event differs "
-    "systematically from that of a non-technological mega-event."))
+    "When a much-anticipated event arrives, online audiences do not warm to it "
+    "gradually; a public forms, tips and mobilises, often in a matter of days. "
+    "This paper studies how audiences collectively turn toward a "
+    "technology-mediated event — how they organise into interpretive communities "
+    "and when they mobilise — and asks whether that turn can be recognised as it "
+    "happens rather than only in hindsight. It compares how differently publics "
+    "assemble around a technologically-framed cultural event and a "
+    "non-technological one, and whether a technological attribute shapes how "
+    "people engage."))
 abstract_item("Design/methodology/approach", (
-    "The study assembles a reproducible observatory of YouTube commenting around "
-    "two contemporaneous 2026 events — the IMAX/70mm release of Nolan's The "
-    "Odyssey and the FIFA World Cup 2026 — comprising 113,887 anonymised "
-    "comments across 140 videos. It contrasts their co-commenter networks, and "
-    "introduces an anytime-valid, e-process (test-martingale) monitor for "
-    "engagement velocity, benchmarked against a naive repeatedly-peeked "
-    "fixed-window test through a 2,000-replication Monte-Carlo study; a "
-    "propensity-score design estimates the causal effect of format-innovation "
-    "framing on diffusion."))
+    "The study observes the publics that formed around two contemporaneous 2026 "
+    "events through the traces they left on YouTube — the IMAX/70mm release of "
+    "Nolan's The Odyssey and the FIFA World Cup 2026 — comprising 113,887 "
+    "anonymised comments from roughly 90,000 people across 140 videos. It "
+    "contrasts the audiences' co-participation networks, monitors their collective "
+    "mobilisation with an anytime-valid, e-process test that stays reliable under "
+    "the continuous observation platform data invite (benchmarked against the "
+    "usual fixed-window practice through a 2,000-replication study), and uses "
+    "propensity-score matching to ask whether format-innovation framing changes "
+    "how audiences engage."))
 abstract_item("Findings", (
-    "The film network is markedly more modular and core-peripheral than the "
-    "sporting network. The e-process controls the false-alarm probability under "
-    "continuous monitoring (0.01-0.08) where the fixed-window test inflates to "
-    "0.59-1.00, while retaining far higher detection power; an "
-    "overdispersion-robust variant is required for the heavy-tailed real series. "
-    "Contrary to a naive novelty-equals-virality assumption, format-innovation "
-    "framing does not amplify — and modestly dampens — networked diffusion once "
-    "reach is controlled."))
+    "The film audience organised into a markedly more modular, community-structured "
+    "public than the flatter, broadcast-centred sporting audience, revealing two "
+    "distinct modes of collective sensemaking. Their mobilisation could be detected "
+    "days ahead of each event: the e-process held false alarms at 0.01-0.08 under "
+    "continuous monitoring where the conventional approach inflated to 0.59-1.00, "
+    "and stayed powerful where the latter failed. Contrary to a naive "
+    "novelty-equals-virality expectation, foregrounding the technological format "
+    "won broadcast reach but did not deepen — and modestly narrowed — the networked "
+    "conversation once reach was held constant."))
 abstract_item("Originality", (
-    "The paper reframes the detection of when collective attention accelerates as "
-    "a formal sequential-testing problem with anytime-valid guarantees, a "
-    "perspective new to information-systems research on platform-mediated "
-    "behaviour, and delivers a fully reproducible, ethics-preserving pipeline."))
+    "The paper treats the temporal onset and the network shape of an online public "
+    "as coupled, jointly observable facets of collective behaviour, and introduces "
+    "anytime-valid inference as a way to study live audience dynamics with error "
+    "guarantees that survive continuous looking — a perspective new to internet "
+    "research on collective attention — within a fully reproducible, "
+    "ethics-preserving design."))
 
 kw = doc.add_paragraph()
 kw.add_run("Keywords ").bold = True
-kw.add_run("Collective attention, Anytime-valid inference, E-values, Change-point "
-           "detection, Social media analytics, YouTube, Diffusion of innovations, "
-           "Network structure, Propensity score matching, Conformal prediction")
+kw.add_run("Online audiences, Collective attention, Collective behaviour, "
+           "Anytime-valid inference, Change-point detection, Social media, YouTube, "
+           "Diffusion of innovations, Interpretive communities, Network structure, "
+           "Propensity score matching")
 pt = doc.add_paragraph()
 pt.add_run("Paper type ").bold = True
 pt.add_run("Research paper")
@@ -196,39 +204,46 @@ para(
     "methodological: how to know, as the data arrive, that a real shift has "
     "begun — and to know it with an error rate that survives continuous looking.")
 para(
-    "Information systems has long been concerned with how people collectively make "
-    "sense of, adopt and react to technology at human scale (Davis, 1989; "
-    "Venkatesh et al., 2003; Berente et al., 2019). Platform-mediated attention is "
-    "a contemporary expression of exactly that concern: the lifecycles of "
-    "collective attention are accelerating (Lorenz-Spreen et al., 2019), online "
-    "reactions increasingly distinguish attention from sentiment (Zhang et al., "
-    "2026), and platform design choices shape what audiences collectively do "
-    "(Liu, 2026; Hong et al., 2025). What has been missing is a principled way to "
-    "monitor these processes as they unfold rather than after they conclude.")
+    "At heart this is a question about people, not about technology. What forms "
+    "around an event is a public: many individuals encountering the same object at "
+    "once and making sense of it in relation to one another. Internet research has "
+    "shown that such publics behave in patterned ways — the lifecycles of "
+    "collective attention are accelerating (Lorenz-Spreen et al., 2019), audiences "
+    "respond in distinctive ways to what platforms and influencers put before them "
+    "(Elhajjar and Itani, 2025; Olfat et al., 2025), and social signals from peers "
+    "shape whether people engage at all (Yin et al., 2025). Yet how a public "
+    "assembles and when it collectively mobilises are usually reconstructed after "
+    "the fact. What has been missing is a principled way to watch people turn "
+    "toward an event as it happens, and to compare how differently they turn when "
+    "the event is defined by a technology.")
 para(
-    "We address this gap through ECHO, an Event Cascade and Hype Observatory built "
-    "around two contemporaneous 2026 events chosen to isolate the role of "
-    "technology. The first is the theatrical release of Christopher Nolan's The "
-    "Odyssey, promoted heavily on its IMAX and 70mm format — a technology-mediated "
-    "cultural event in which a technical attribute is itself part of the story. "
-    "The second is the FIFA World Cup 2026, a mega-event of comparable scale whose "
-    "draw is not technological. Observing both through the same instrument — the "
-    "public commentary they generate on YouTube — lets us ask what, if anything, "
-    "the technology dimension changes about how attention organises and moves.")
+    "We pursue this through ECHO, an observatory of the publics that formed around "
+    "two contemporaneous 2026 events chosen to isolate the role of technology in "
+    "how people engage. The first is the theatrical release of Christopher Nolan's "
+    "The Odyssey, promoted heavily on its IMAX and 70mm format — an event in which "
+    "a technical attribute is itself something audiences must make sense of. The "
+    "second is the FIFA World Cup 2026, a mega-event of comparable scale whose "
+    "draw is not technological. Observing the people who gathered around both "
+    "through the same trace — the commentary they left on YouTube — lets us ask "
+    "what, if anything, the technology dimension changes about how a public "
+    "organises itself and moves.")
 para(
-    "The paper makes three contributions. First, substantively, it shows that a "
-    "technology-mediated cultural event leaves a distinctly more modular and "
-    "core-peripheral networked signature than a sporting mega-event, and that the "
-    "much-touted format-innovation narrative does not, once reach is held "
-    "constant, causally amplify networked diffusion. Second, and most "
-    "distinctively, it reframes the detection of attention acceleration as a "
-    "sequential-testing problem and brings anytime-valid e-process methods "
-    "(Grünwald et al., 2024; Vovk and Wang, 2021; Shin et al., 2023) to bear on "
-    "it, demonstrating valid real-time detection where fixed-window practice "
-    "fails. Third, methodologically, it delivers a transparent, quota-aware and "
-    "ethics-preserving pipeline that is fully reproducible from a single "
-    "configuration, in the spirit of open, computationally intensive IS research "
-    "(Nosek et al., 2015; Berente et al., 2019).")
+    "The paper makes three contributions, all about collective human behaviour. "
+    "First, it shows that audiences assembling around a technology-mediated "
+    "cultural event organise into a more differentiated, community-structured "
+    "public — many interpretive sub-audiences around a shared core — than those "
+    "around a sporting mega-event, who cohere into a flatter, broadcast-centred "
+    "crowd; two distinct modes of collective sensemaking. Second, it shows that "
+    "the moment a public collectively mobilises can be identified in real time "
+    "with guarantees, by treating mobilisation as a sequential test and bringing "
+    "anytime-valid e-process methods (Grünwald et al., 2024; Vovk and Wang, 2021; "
+    "Shin et al., 2023) to audience data — where the fixed-window habit both cries "
+    "wolf and misses the turn. Third, it shows that a technological attribute "
+    "people are invited to care about can win their attention without deepening "
+    "their conversation: format-innovation framing does not, once reach is held "
+    "constant, amplify the networked exchange among audience members. Throughout, "
+    "the observatory is transparent, quota-aware, ethics-preserving and fully "
+    "reproducible (Nosek et al., 2015; Berente et al., 2019).")
 
 # ===========================================================================
 # 2. BACKGROUND
@@ -256,46 +271,49 @@ para(
     "2003; Davis, 1989; Venkatesh et al., 2003) frame adoption as a social "
     "process; platform commentary offers a fine-grained, behavioural trace of that "
     "process as it happens. YouTube comments in particular have become a "
-    "productive site for computational social science (Ji et al., 2023; Sari et "
-    "al., 2025), and the discipline has increasingly embraced data-driven, "
-    "computationally intensive theory development from such traces (Berente et al., "
-    "2019). Within Information Technology & People, a stream of recent work "
-    "examines platform-mediated engagement, user-generated content and collective "
-    "information behaviour (Liu and Liu, 2025; Osei-Frimpong et al., 2025; Hong et "
-    "al., 2025; Liu, 2026; Chen et al., 2026; Sun et al., 2026), locating the "
-    "present study squarely within the journal's concern for the human scale of "
-    "socio-technical processes.")
-h2("2.2 Collective attention as a socio-technical process")
+    "productive site for observing how audiences collectively interpret and react "
+    "(Ji et al., 2023; Sari et al., 2025), and the field has increasingly embraced "
+    "data-driven theory development from such behavioural traces (Berente et al., "
+    "2019). A vigorous stream of internet research examines how online audiences "
+    "engage and mobilise: how they respond to platform and influencer signals "
+    "(Elhajjar and Itani, 2025; Olfat et al., 2025), how peer cues drive "
+    "participation (Yin et al., 2025), how they resist manipulative design (Kelly "
+    "and Burkell, 2025), and how the attributes of information they encounter shape "
+    "their reactions (Pan et al., 2026). The present study joins this stream, "
+    "foregrounding the human scale of these processes — who talks near whom, and "
+    "when a public collectively moves.")
+h2("2.2 Online publics as a collective accomplishment")
 para(
-    "Information Technology & People has consistently framed technology use as a "
-    "human, social accomplishment rather than a purely technical one. Collective "
-    "attention on platforms is a vivid instance: what looks like a spike in a "
-    "metric is, underneath, thousands of people encountering the same object and "
-    "making sense of it in relation to one another. The structure of that "
-    "sense-making — who talks near whom, whether the crowd fragments into "
-    "interpretive communities or coheres around a broadcast — is itself a "
-    "socio-technical outcome, shaped by how a platform surfaces content and by the "
-    "nature of the event that draws people in. Recent ITP scholarship examines how "
-    "platform presets shape collective decision premises (Liu, 2026), how "
-    "sustained community participation can turn from benefit to harm "
-    "(Osei-Frimpong et al., 2025), and how users react against algorithmic "
-    "enclosure (Hong et al., 2025). Our contribution to this stream is to treat "
-    "the temporal onset and the network shape of collective attention as jointly "
-    "observable, and to insist that claims about when attention moves be held to a "
-    "standard of statistical validity appropriate to continuous observation.")
-h2("2.3 Technology-mediated events and format innovation")
+    "It helps to be explicit that the object of study here is people, not the "
+    "platform or the film. Collective attention online is a vivid case of "
+    "collective behaviour: what looks like a spike in a metric is, underneath, tens "
+    "of thousands of individuals encountering the same object at once and making "
+    "sense of it in relation to one another. The structure of that sense-making — "
+    "whether a public fragments into interpretive communities or coheres around a "
+    "broadcast — is an achievement of the audience, conditioned but not determined "
+    "by how the platform surfaces content and by the nature of the event that draws "
+    "people in (Meng et al., 2025). Audiences are also shaped and constrained by "
+    "what is placed before them, engaging or resisting depending on peer signals "
+    "and platform design (Yin et al., 2025; Kelly and Burkell, 2025). Our "
+    "contribution to this understanding is to treat the temporal onset and the "
+    "network shape of an online public as coupled, jointly observable facets of "
+    "collective behaviour, and to insist that claims about when a public moves be "
+    "held to a standard of validity appropriate to watching it in real time.")
+h2("2.3 How people engage with a technological attribute")
 para(
-    "Some cultural events foreground a technological attribute as part of their "
-    "appeal. The IMAX/70mm presentation of The Odyssey is a clear case: the format "
-    "is marketed as a reason to attend, making the technology itself an object of "
-    "collective sensemaking. Whether such framing amplifies engagement is an open "
-    "question. Electronic word-of-mouth is known to move entertainment outcomes "
-    "(Li et al., 2026), but the naive expectation that novelty automatically "
-    "breeds virality sits uneasily with evidence that reach and networked "
-    "engagement are distinct (Goel et al., 2016) and that attention and sentiment "
-    "must be separated (Zhang et al., 2026). We treat the effect of "
-    "format-innovation framing as an empirical, causal question rather than an "
-    "assumption.")
+    "Some cultural events ask their audiences to care about a technological "
+    "attribute. The IMAX/70mm presentation of The Odyssey is a clear case: the "
+    "format is offered as a reason to attend, and so becomes something people must "
+    "interpret, discuss and decide how much to value — a small act of collective "
+    "adaptation to a technology. Whether audiences respond to that invitation with "
+    "deeper engagement is an open question. Electronic word-of-mouth is known to "
+    "move entertainment outcomes (Li et al., 2026), but the naive expectation that "
+    "technological novelty automatically breeds a lively public sits uneasily with "
+    "evidence that reach and networked engagement are distinct (Goel et al., 2016) "
+    "and that being noticed is not the same as being talked about (Zhang et al., "
+    "2026). We therefore treat how people engage with the format-innovation framing "
+    "as an empirical, causal question about audience behaviour rather than an "
+    "assumption about the technology.")
 h2("2.4 Anytime-valid inference and sequential change detection")
 para(
     "The methodological core of the paper draws on a rapidly maturing body of work "
@@ -313,9 +331,10 @@ para(
     "sequential change-point identification with time-uniform guarantees (Shin et "
     "al., 2023), connecting classical Shiryaev-Roberts procedures to the "
     "e-process view. Despite this momentum in statistics, anytime-valid methods "
-    "remain almost unknown in IS analyses of platform behaviour, where "
-    "fixed-window comparisons still dominate. Bringing them to the study of "
-    "collective attention is the paper's principal methodological move.")
+    "remain almost unknown in internet and social-media research on audience "
+    "behaviour, where fixed-window comparisons still dominate. Bringing them to "
+    "bear on how publics collectively mobilise is the paper's principal "
+    "methodological move.")
 para(
     "Two further tools support robustness. Conformal prediction offers "
     "distribution-free predictive intervals (Angelopoulos and Bates, 2023; Vovk et "
@@ -335,17 +354,20 @@ para(
     "Bringing the substantive and methodological strands together, the study "
     "addresses three questions:")
 para(
-    "RQ1 (structure). Does the co-commenter network around a technology-mediated "
-    "cultural event differ systematically in its structure — modularity, "
-    "core-periphery organisation, bridging — from that around a "
-    "non-technology-anchored mega-event?")
+    "RQ1 (how publics organise). Do audiences assembling around a "
+    "technology-mediated cultural event organise into a systematically different "
+    "kind of public — more or less fragmented into interpretive communities, more "
+    "or less centralised — than those gathering around a non-technological "
+    "mega-event?")
 para(
-    "RQ2 (dynamics). Can an anytime-valid e-process detect the onset of "
-    "engagement acceleration with valid Type-I error control under continuous "
-    "monitoring, faster and more reliably than a fixed-window comparison?")
+    "RQ2 (when publics mobilise). Can the moment a public collectively mobilises be "
+    "identified in real time, with error guarantees that survive continuous "
+    "observation, faster and more reliably than the fixed-window comparisons "
+    "analysts habitually use?")
 para(
-    "RQ3 (causal). Controlling for channel size, reach and timing, does "
-    "format-innovation framing causally amplify cross-channel diffusion?")
+    "RQ3 (how a technological attribute shapes engagement). Controlling for the "
+    "reach an item would attract anyway, does inviting audiences to care about the "
+    "format innovation deepen the networked conversation among them?")
 
 # ===========================================================================
 # 4. METHODOLOGY
@@ -600,22 +622,25 @@ figure("fig4_causal_conformal",
 # 6. DISCUSSION
 # ===========================================================================
 h1("6. Discussion")
-h2("6.1 What the technology dimension changes")
+h2("6.1 Two ways a public comes together")
 para(
-    "Read together, the results sketch a coherent picture of how a "
-    "technology-mediated cultural event differs from a non-technological one. "
-    "Structurally, the film event cultivates a more modular, core-peripheral "
-    "public: many interpretive communities — fans, sceptics, format enthusiasts, "
-    "language-specific audiences — orbiting a shared core, a configuration well "
-    "suited to sustained, cross-referential sensemaking. The sporting event, by "
-    "contrast, mobilises a flatter and more centralised public organised around "
-    "broadcast moments. Yet the technology attribute that ostensibly "
-    "differentiates the film — its format — does not, on our evidence, translate "
-    "into deeper networked diffusion. The novelty attracts eyes; it does not by "
-    "itself knit a denser conversation. For a discipline concerned with how people "
-    "collectively conceptualise and adapt to technology, this gap between reach and "
-    "networked engagement is the substantive payoff: technological framing "
-    "functions here more as a broadcast signal than as a social multiplier.")
+    "Read together, the results describe two contrasting ways that people come "
+    "together around an event. The audience for the technology-mediated film "
+    "assembled as a differentiated public: many interpretive communities — fans, "
+    "sceptics, format enthusiasts, language-specific audiences — orbiting a shared "
+    "core, a configuration well suited to sustained, cross-referential "
+    "sensemaking, where participants read and answer one another. The sporting "
+    "audience came together as a flatter, more centralised crowd organised around "
+    "broadcast moments, reacting in parallel more than to each other. This is a "
+    "finding about collective human behaviour: the same platform hosts "
+    "qualitatively different publics depending on what has drawn people in. Yet the "
+    "technological attribute that ostensibly distinguishes the film — its format — "
+    "did not, on our evidence, lead audiences into a denser conversation. Inviting "
+    "people to care about the technology attracted their eyes; it did not by itself "
+    "knit them into a richer exchange. For a field concerned with how people "
+    "collectively conceptualise and adapt to technology, this gap between being "
+    "reached and choosing to converse is the substantive payoff: a technological "
+    "hook functioned here as a broadcast signal more than as a social multiplier.")
 h2("6.2 Watching, not reconstructing")
 para(
     "The methodological contribution is to make attention acceleration observable "
@@ -627,36 +652,36 @@ para(
     "approach certainty, and which is simultaneously underpowered against real "
     "change. The anytime-valid e-process removes this pathology, and the "
     "overdispersion-robust variant is not an optional refinement but a necessity "
-    "for the heavy-tailed counts that platform data invariably produce. We regard "
-    "the transfer of this toolkit into IS research on platform behaviour as the "
-    "paper's most portable idea: wherever analysts monitor an accumulating "
-    "behavioural series and act on the first significant look, the same guarantees "
-    "apply.")
-h2("6.3 Theoretical contributions")
+    "for the heavy-tailed counts that audience data invariably produce. We regard "
+    "the transfer of this toolkit into internet research on audience behaviour as "
+    "the paper's most portable idea: wherever analysts monitor an accumulating "
+    "trace of what people are doing and act on the first significant look, the "
+    "same guarantees apply.")
+h2("6.3 Contributions to understanding online publics")
 para(
-    "The paper contributes to information-systems theory in three ways. First, it "
-    "advances a socio-technical account of collective attention in which the "
-    "temporal onset and the network structure of a public are treated as coupled, "
-    "jointly observable phenomena rather than as separate descriptive facts; the "
-    "contrast between a modular, community-structured film public and a flat, "
-    "broadcast-centred sporting public shows that the nature of the "
-    "technology-mediated object leaves a legible imprint on how collective "
-    "sensemaking self-organises. Second, it refines the diffusion-of-innovations "
-    "lens for platform settings by distinguishing broadcast reach from networked "
-    "diffusion and showing empirically that a salient technology attribute can "
-    "drive the former without the latter — a caution against reading engagement "
-    "metrics as evidence of deep adoption or community formation (Rogers, 2003; "
-    "Goel et al., 2016). Third, and most transferably, it introduces "
-    "anytime-valid inference as a theoretical stance for studying live "
-    "socio-technical processes: it reframes temporal claims about behaviour as "
-    "sequential hypotheses that must remain valid under the continuous observation "
-    "that platform data invite.")
+    "The paper contributes to the understanding of online collective behaviour in "
+    "three ways. First, it advances an account of online publics in which the "
+    "temporal onset and the network structure of collective attention are treated "
+    "as coupled, jointly observable facets of how people behave, rather than as "
+    "separate descriptive facts; the contrast between a modular, "
+    "community-structured film public and a flat, broadcast-centred sporting one "
+    "shows that the nature of the event people gather around leaves a legible "
+    "imprint on how their collective sensemaking self-organises. Second, it refines "
+    "the diffusion-of-innovations lens for online settings by distinguishing "
+    "broadcast reach from networked conversation and showing empirically that a "
+    "salient technology attribute can win the former without the latter — a caution "
+    "against reading engagement metrics as evidence that people have genuinely "
+    "adopted or formed community around a technology (Rogers, 2003; Goel et al., "
+    "2016). Third, and most transferably, it introduces anytime-valid inference as "
+    "a stance for studying live collective behaviour: it reframes temporal claims "
+    "about what audiences are doing as sequential hypotheses that must remain valid "
+    "under the continuous observation that online data invite.")
 h2("6.4 Implications for research and practice")
 para(
     "For research, the study illustrates how anytime-valid inference can be woven "
-    "into the data-driven, computationally intensive theorising that IS now "
-    "embraces (Berente et al., 2019), turning continuous behavioural traces into "
-    "monitored hypotheses rather than post-hoc comparisons. For practice, an "
+    "into the data-driven study of online behaviour (Berente et al., 2019), "
+    "turning the continuous traces people leave into monitored hypotheses rather "
+    "than post-hoc comparisons. For practice, an "
     "e-process monitor offers platform teams, studios and broadcasters an early, "
     "trustworthy signal that engagement has genuinely turned — days before a "
     "release in our data — without the false alarms that erode confidence in "
@@ -696,19 +721,21 @@ para(
 # ===========================================================================
 h1("7. Conclusion")
 para(
-    "Collective attention around technology-mediated events is usually narrated "
-    "after the fact. This paper shows that it need not be. By observing two "
-    "contemporaneous 2026 mega-events through their YouTube commentary, it "
-    "establishes that a technology-mediated cultural event leaves a more modular, "
-    "core-peripheral networked signature than a sporting one, that its "
-    "format-innovation framing wins reach without deepening networked diffusion, "
-    "and — most distinctively — that the onset of attention acceleration can be "
-    "detected in real time with anytime-valid guarantees where conventional "
-    "fixed-window practice fails on both validity and power. The accompanying "
-    "observatory is fully reproducible and ethics-preserving. Reframing the "
-    "question from 'what happened' to 'is it happening now, and can we trust the "
-    "signal' opens a broadly applicable path for information-systems research on "
-    "the human dynamics of platform-mediated attention.")
+    "How a public turns toward an event is usually narrated after the fact. This "
+    "paper shows that it need not be, and that the turning itself is worth "
+    "studying. By observing the people who gathered around two contemporaneous 2026 "
+    "mega-events through the commentary they left on YouTube, it establishes that "
+    "audiences drawn by a technology-mediated cultural event assemble into a more "
+    "differentiated, community-structured public than those drawn by a sporting "
+    "one; that inviting people to care about a technological format wins their "
+    "attention without deepening their conversation; and — most distinctively — "
+    "that the moment a public collectively mobilises can be recognised in real time "
+    "with guarantees that survive continuous looking, where conventional practice "
+    "fails on both validity and power. The accompanying observatory is fully "
+    "reproducible and ethics-preserving. Shifting the question from 'what happened' "
+    "to 'are people turning now, and can we trust the signal' opens a broadly "
+    "applicable path for studying the collective human dynamics of online "
+    "attention.")
 
 # ===========================================================================
 # REFERENCES
@@ -721,39 +748,37 @@ REFS = [
  'Austin, P.C. (2011), "An introduction to propensity score methods for reducing the effects of confounding in observational studies", Multivariate Behavioral Research, Vol. 46 No. 3, pp.399-424, doi: 10.1080/00273171.2011.568786.',
  'Berente, N., Seidel, S. and Safadi, H. (2019), "Research commentary—data-driven computationally intensive theory development", Information Systems Research, Vol. 30 No. 1, pp.50-64, doi: 10.1287/isre.2018.0774.',
  'Blondel, V.D., Guillaume, J.-L., Lambiotte, R. and Lefebvre, E. (2008), "Fast unfolding of communities in large networks", Journal of Statistical Mechanics: Theory and Experiment, Vol. 2008 No. 10, P10008, doi: 10.1088/1742-5468/2008/10/P10008.',
- 'Chen, Y., Sun, Y., Zhang, Y. and Wang, Y. (2026), "Emotional support or emotional release? A dual-path model of emotional intelligence of AI companions on user engagement", Information Technology & People, Vol. ahead-of-print No. ahead-of-print, doi: 10.1108/ITP-03-2025-0362.',
  'Davis, F.D. (1989), "Perceived usefulness, perceived ease of use, and user acceptance of information technology", MIS Quarterly, Vol. 13 No. 3, pp.319-340, doi: 10.2307/249008.',
+ 'Elhajjar, S. and Itani, O.S. (2025), "Examining the impact of social media de-influencing on audiences", Internet Research, Vol. 36 No. 4, pp.1201-1221, doi: 10.1108/INTR-04-2024-0574.',
  'Fischer, L., Barry, T. and Ramdas, A. (2026), "Multiple testing with anytime-valid Monte Carlo p-values", Electronic Journal of Statistics, Vol. 20 No. 1, doi: 10.1214/26-ejs2514.',
  'Gibbs, I., Cherian, J.J. and Candès, E.J. (2025), "Conformal prediction with conditional guarantees", Journal of the Royal Statistical Society Series B: Statistical Methodology, Vol. 87 No. 4, pp.1100-1126, doi: 10.1093/jrsssb/qkaf008.',
  'Goel, S., Anderson, A., Hofman, J. and Watts, D.J. (2016), "The structural virality of online diffusion", Management Science, Vol. 62 No. 1, pp.180-196, doi: 10.1287/mnsc.2015.2158.',
  'Grünwald, P., de Heide, R. and Koolen, W. (2024), "Safe testing", Journal of the Royal Statistical Society Series B: Statistical Methodology, Vol. 86 No. 5, pp.1091-1128, doi: 10.1093/jrsssb/qkae011.',
- 'Hong, X., Pan, L., Xu, M. and Chen, Q. (2025), "Escaping from the echo chamber: understanding user behavior from the perspective of psychological reactance theory", Information Technology & People, Vol. 39 No. 3, pp.1447-1473, doi: 10.1108/ITP-08-2024-0984.',
  'Howard, S.R., Ramdas, A., McAuliffe, J. and Sekhon, J. (2021), "Time-uniform, nonparametric, nonasymptotic confidence sequences", The Annals of Statistics, Vol. 49 No. 2, pp.1055-1080, doi: 10.1214/20-aos1991.',
  'Ji, J.J., Hu, H. and Wei, S. (2023), "YouTube comments on gene-edited babies: what factors affect diverse opinions in comments?", Social Science Computer Review, Vol. 41 No. 4, pp.1420-1437, doi: 10.1177/08944393211073164.',
  'Jun, J. and Ohn, I. (2026), "Online conformal inference with retrospective adjustment for faster adaptation to distribution shift", Pattern Recognition, Vol. 180, 114406, doi: 10.1016/j.patcog.2026.114406.',
+ 'Kelly, D. and Burkell, J. (2025), "Resisting online manipulation: how teens perceive and respond to privacy dark patterns on social media", Internet Research, Vol. ahead-of-print No. ahead-of-print, doi: 10.1108/INTR-04-2024-0539.',
  'Kozinets, R.V. (2002), "The field behind the screen: using netnography for marketing research in online communities", Journal of Marketing Research, Vol. 39 No. 1, pp.61-72, doi: 10.1509/jmkr.39.1.61.18935.',
  'Li, L., He, Y., Liu, L. and Zhao, J. (2026), "The impact of multi-aspect electronic word-of-mouth on movie box office: an exploration study based on large language models", Decision Support Systems, Vol. 208, 114718, doi: 10.1016/j.dss.2026.114718.',
  'Lindon, M., Ham, D.W., Tingley, M. and Bojinov, I. (2026), "Anytime-valid inference in linear models with applications to regression-adjusted causal inference", Journal of the American Statistical Association, advance online publication, pp.1-27, doi: 10.1080/01621459.2026.2692052.',
- 'Liu, C. and Liu, S. (2025), "How to increase other’s engagement with user-generated content: the role of flow experience", Information Technology & People, Vol. 39 No. 3, pp.1474-1494, doi: 10.1108/ITP-11-2024-1403.',
- 'Liu, S. (2026), "Programmed power: how presets transform decision premises in the platform society", Information Technology & People, Vol. ahead-of-print No. ahead-of-print, doi: 10.1108/ITP-01-2026-0110.',
  'Lorenz-Spreen, P., Mønsted, B.M., Hövel, P. and Lehmann, S. (2019), "Accelerating dynamics of collective attention", Nature Communications, Vol. 10, 1759, doi: 10.1038/s41467-019-09311-w.',
  'Mariani, M.S., Battiston, F., Horvát, E.-Á., Livan, G., Musciotto, F. and Wang, D. (2024), "Collective dynamics behind success", Nature Communications, Vol. 15, 10701, doi: 10.1038/s41467-024-54612-4.',
  'Martin, R. (2026), "Regularized e-processes: anytime valid inference with knowledge-based efficiency gains", Bernoulli, Vol. 32 No. 3, doi: 10.3150/25-bej1939.',
+ 'Meng, X., Wang, X. and Zhao, X. (2025), "The dynamics of conspiracy theories on social media from the diffusion of innovations perspective: the moderating role of time", Internet Research, Vol. ahead-of-print No. ahead-of-print, doi: 10.1108/INTR-07-2024-1123.',
  'Mocanu, D., Rossi, L., Zhang, Q., Karsai, M. and Quattrociocchi, W. (2015), "Collective attention in the age of (mis)information", Computers in Human Behavior, Vol. 51, pp.1198-1204, doi: 10.1016/j.chb.2015.01.024.',
  'Newman, M.E.J. (2006), "Modularity and community structure in networks", Proceedings of the National Academy of Sciences, Vol. 103 No. 23, pp.8577-8582, doi: 10.1073/pnas.0601602103.',
  'Nosek, B.A., Alter, G., Banks, G.C., Borsboom, D., Bowman, S.D., Breckler, S.J., Buck, S., Chambers, C.D., Chin, G., Christensen, G., Contestabile, M., Dafoe, A., Eich, E., Freese, J., Glennerster, R., Goroff, D., Green, D.P., Hesse, B., Humphreys, M., Ishiyama, J., Karlan, D., Kraut, A., Lupia, A., Mabry, P., Madon, T., Malhotra, N., Mayo-Wilson, E., McNutt, M., Miguel, E., Paluck, E.L., Simonsohn, U., Soderberg, C., Spellman, B.A., Turitto, J., VandenBos, G., Vazire, S., Wagenmakers, E.J., Wilson, R. and Yarkoni, T. (2015), "Promoting an open research culture", Science, Vol. 348 No. 6242, pp.1422-1425, doi: 10.1126/science.aab2374.',
- 'Osei-Frimpong, K., Islam, N., Ahorkonu, C.K., Soga, L.R. and McLean, G. (2025), "Exploring the dark side of continuous social media brand community participation on consumer psychological ill-being: initial vs sustained participation", Information Technology & People, Vol. 39 No. 3, pp.1387-1414, doi: 10.1108/ITP-02-2025-0162.',
+ 'Olfat, M., Topic-Rutherford, M., Mohammad Beig, M. and Barkhi, F. (2025), "What makes an influencer’s followers green? U-shaped curvilinear relationships between influencers’ interactive practices and perceived pro-environmental behaviors", Internet Research, Vol. ahead-of-print No. ahead-of-print, doi: 10.1108/INTR-09-2024-1395.',
+ 'Pan, T., Guo, X., Sun, Y. and Yang, H. (2026), "Revealing how information attributes of social media affect individuals’ mental health during health crises: a person-environment fit perspective", Internet Research, Vol. ahead-of-print No. ahead-of-print, doi: 10.1108/INTR-06-2025-0965.',
  'Peng, S. and Bainbridge, W.A. (2026), "Image memorability predicts social media virality and externally-associated commenting", Computers in Human Behavior, Vol. 174, 108799, doi: 10.1016/j.chb.2025.108799.',
  'Ramdas, A., Grünwald, P., Vovk, V. and Shafer, G. (2023), "Game-theoretic statistics and safe anytime-valid inference", Statistical Science, Vol. 38 No. 4, pp.576-601, doi: 10.1214/23-sts894.',
  'Rogers, E.M. (2003), Diffusion of Innovations, 5th ed., Free Press, New York, NY.',
  'Rosenbaum, P.R. and Rubin, D.B. (1983), "The central role of the propensity score in observational studies for causal effects", Biometrika, Vol. 70 No. 1, pp.41-55, doi: 10.1093/biomet/70.1.41.',
  'Sari, D.K., Herwandito, S., Utomo, A.W., Solikhah, N.I. and Wibowo, N.A. (2025), "We know who we are: expressing national identity on YouTube video comments", Journal of Computational Social Science, Vol. 8 No. 4, 85, doi: 10.1007/s42001-025-00426-3.',
  'Shafer, G. (2021), "Testing by betting: a strategy for statistical and scientific communication", Journal of the Royal Statistical Society Series A: Statistics in Society, Vol. 184 No. 2, pp.407-431, doi: 10.1111/rssa.12647.',
- 'Shekhar, S. and Ramdas, A. (2024), "Nonparametric two-sample testing by betting", IEEE Transactions on Information Theory, Vol. 70 No. 2, pp.1178-1203, doi: 10.1109/tit.2023.3305867.',
  'Shin, J., Ramdas, A. and Rinaldo, A. (2023), "E-detectors: a nonparametric framework for sequential change detection", The New England Journal of Statistics in Data Science, pp.229-260, doi: 10.51387/23-nejsds51.',
  'Sousa, M., Tomé, A.M. and Moreira, J. (2024), "A general framework for multi-step ahead adaptive conformal heteroscedastic time series forecasting", Neurocomputing, Vol. 608, 128434, doi: 10.1016/j.neucom.2024.128434.',
  'Stuart, E.A. (2010), "Matching methods for causal inference: a review and a look forward", Statistical Science, Vol. 25 No. 1, pp.1-21, doi: 10.1214/09-STS313.',
- 'Sun, M., Chen, H., Chen, H. and Jiang, B. (2026), "Does AI identity disclosure stimulate user responses? An exploration based on meta-analysis", Information Technology & People, Vol. ahead-of-print No. ahead-of-print, doi: 10.1108/ITP-06-2025-0813.',
  'Traag, V.A., Waltman, L. and van Eck, N.J. (2019), "From Louvain to Leiden: guaranteeing well-connected communities", Scientific Reports, Vol. 9, 5233, doi: 10.1038/s41598-019-41695-z.',
  'Venkatesh, V., Morris, M.G., Davis, G.B. and Davis, F.D. (2003), "User acceptance of information technology: toward a unified view", MIS Quarterly, Vol. 27 No. 3, pp.425-478, doi: 10.2307/30036540.',
  'Vosoughi, S., Roy, D. and Aral, S. (2018), "The spread of true and false news online", Science, Vol. 359 No. 6380, pp.1146-1151, doi: 10.1126/science.aap9559.',
@@ -761,8 +786,10 @@ REFS = [
  'Vovk, V., Gammerman, A. and Shafer, G. (2022), Algorithmic Learning in a Random World, 2nd ed., Springer, Cham, doi: 10.1007/978-3-031-06649-8.',
  'Wang, H. and Ramdas, A. (2025), "Anytime-valid t-tests and confidence sequences for Gaussian means with unknown variance", Sequential Analysis, Vol. 44 No. 1, pp.56-110, doi: 10.1080/07474946.2024.2428245.',
  'Wang, R. and Ramdas, A. (2022), "False discovery rate control with e-values", Journal of the Royal Statistical Society Series B: Statistical Methodology, Vol. 84 No. 3, pp.822-852, doi: 10.1111/rssb.12489.',
+ 'Waudby-Smith, I. and Ramdas, A. (2024), "Estimating means of bounded random variables by betting", Journal of the Royal Statistical Society Series B: Statistical Methodology, Vol. 86 No. 1, pp.1-27, doi: 10.1093/jrsssb/qkad009.',
  'Wu, Y.J., van Zoonen, W., Treem, J.W. and Sivunen, A.E. (2026), "Attention dynamics on social technology platforms in organizations: an empirical study of structural and temporal mechanisms", New Media & Society, advance online publication, doi: 10.1177/14614448261456236.',
  'Wu, Z., Pan, S., Chen, F., Long, G., Zhang, C. and Yu, P.S. (2021), "A comprehensive survey on graph neural networks", IEEE Transactions on Neural Networks and Learning Systems, Vol. 32 No. 1, pp.4-24, doi: 10.1109/TNNLS.2020.2978386.',
+ 'Yin, Q., Guo, C. and Yan, Z. (2025), "From intervention to prevention! Effects of peer progress information on user engagement", Internet Research, Vol. ahead-of-print No. ahead-of-print, doi: 10.1108/INTR-05-2024-0817.',
  'Zhang, X.M., Xu, D., Hong, H. and Chan, K. (2026), "Attention or sentiment: how social media react to ESG?", Information Systems Research, Vol. 37 No. 2, pp.1323-1336, doi: 10.1287/isre.2022.0251.',
  'Zhou, J., Cui, G., Hu, S., Zhang, Z., Yang, C., Liu, Z., Wang, L., Li, C. and Sun, M. (2020), "Graph neural networks: a review of methods and applications", AI Open, Vol. 1, pp.57-81, doi: 10.1016/j.aiopen.2021.01.001.',
  'Zimmer, M. (2010), "‘But the data is already public’: on the ethics of research in Facebook", Ethics and Information Technology, Vol. 12 No. 4, pp.313-325, doi: 10.1007/s10676-010-9227-5.',
